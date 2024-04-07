@@ -29,12 +29,12 @@ bool GetTop_Stack(Stack S,char e){
 }
 
 bool Push_Stack(Stack &S,char e){
-	if(S.top==S.stacksize-1) cout<<"拉满了"<<endl;return false;
-	else S.elem[++S.top]=e;return true;
+	if(S.top==S.stacksize-1) {cout<<"拉满了"<<endl;return false;}
+	else {S.elem[++S.top]=e;return true;}
 }
 
 bool Pop_Stack(Stack &S){
-	if(S.top==-1)cout<<"pop到头了"<<endl;return false;
+	if(S.top==-1){cout<<"pop到头了"<<endl;return false;}
 	S.top--;return true;
 }
 
@@ -42,8 +42,8 @@ int main (){
 	
 	Stack S1;// 创了个栈配套结构;
 	initStack(S1); 
-	
-	cout<<GetTop_Stack(S1)<<endl;
+	char a=0;
+	cout<<GetTop_Stack(S1,a)<<' is '<<a<<endl;
 	
 	return 0;
 }
