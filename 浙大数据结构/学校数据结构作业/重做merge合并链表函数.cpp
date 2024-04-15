@@ -14,12 +14,15 @@ bool inintList(List*& Head){
 void MergeList(List* La,List* Lb){ //默认无头结点 
 	List* Temp=NULL;
 	while(La){
-		if(Lb&&La->elem<=Lb->elem){
-			Temp=La;
-			La=La->Next;
-			Temp->Next=Lb;
-			Temp->Next->Next=La; // 恢复La链接 
-			Lb=Lb->Next;
+		if(Lb){
+			Temp=La; //留前驱 
+			if(La->elem<=Lb->elem){
+				La=La->Next;
+				Temp->Next=Lb;
+				Temp->Next->Next=La; // 恢复La链接 
+				Lb=Lb->Next;
+			}
+			else La=La->Next;
 		}
 	}while(Lb){ //如果Lb没摘完 
 		if(Temp){ //防止La为空链表 
