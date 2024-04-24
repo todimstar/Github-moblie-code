@@ -1,6 +1,6 @@
 #include<iostream>
 
-using namespace std;//  链表方式实现栈
+using namespace std;//  链表方式实现栈 头指针不动 尾指针入和出 
 
 #define Stack_Max 10
 
