@@ -12,8 +12,7 @@ void dfs(int u){
         }printf("\n");return;
     }else{
         for(int i=1;i<=n;i++){
-            if(d[i]==1)continue;
-            else{
+            if(d[i]==0){
                 d[i]=1;
                 a[u]=i;
                 dfs(u+1);

@@ -15,7 +15,7 @@ void dfs(int u){
                 st[i]=1;
                 dfs(u+1);
                 st[i]=0;
-                path[u]=0;
+                path[u]=0;//?感觉删掉也可 
             }
         }
     }

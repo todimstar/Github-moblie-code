@@ -19,7 +19,7 @@ void dfs(int u,int start){
 }
 
 int main(){
-    scanf("%d %d",&n,&m);
+    scanf("%d %d",&n,&m);//几个数字n,数组多大m
     dfs(1,1);
     return 0;
 }
