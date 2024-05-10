@@ -1,12 +1,16 @@
 #include<iostream>
-
+#include<stdlib.h>
 using namespace std;
+
+int compare(const void* a,const void* b){
+    return ((*(int*)a)-(*(int*)b));
+}
 
 void quick_sort(int* q,int l,int r){
 	
 	if(l>=r)return;
 	
-	int x=q[l],i=l-1,j=r+1;
+	int x=q[l+(r-l)/2],i=l-1,j=r+1; //选中间点会加快速度
 	while(i<j){
 		do i++;while(q[i]<x);
 		do j--;while(q[j]>x);
@@ -16,11 +20,15 @@ void quick_sort(int* q,int l,int r){
 	quick_sort(q,j+1,r);
 }
 
-int a[]={5,1,2,3,4};
+
 int main (){
-	
-	quick_sort(a,0,4);
-	for(int i=0;i<5;i++)printf("%d ",a[i]);
+	int n;
+	int a[100001];
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)scanf("%d",&a[i]);
+	//qsort(a,n,sizeof(a[0]),compare);
+	quick_sort(a,0,n-1);
+	for(int i=0;i<n;i++)printf("%d ",a[i]);
 	
 	return 0;
 }
