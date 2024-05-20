@@ -13,14 +13,14 @@ using namespace std;
 bool bt[NUMMAX+1]={0};
 int num[NUMMAX+1],n;
 void dfs(int u){
-	int i;
+	
 	if(u>n){
-		for(i=1;i<=n;i++)printf("%d ",num[i]);
+		for(int i=1;i<=n;i++)printf("%d ",num[i]);
 		printf("\n");
 		return;
 	}
 	else{
-		for(i=1;i<=n;i++){//bt也需要+1 
+		for(int i=1;i<=n;i++){//bt也需要+1 
 			if(!bt[i]){
 				bt[i]=true;
 				num[u]=i;
@@ -31,6 +31,7 @@ void dfs(int u){
 	}
 	
 }
+
 
 
 int main (){
