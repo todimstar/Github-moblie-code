@@ -7,7 +7,9 @@ int n,a,b,c,cot=0;
 int dx[3];
 void dfs(int ou){
     if(ou==n){
-        cot++;return;
+        cot++;
+		cout<<cot<<"次\n";//24.6.2硬币转换改 
+		return;
     }else {
         for(int i=0;i<3;i++){
             int x=ou+dx[i];
@@ -25,7 +27,7 @@ int main (){
 	
 	scanf("%d",&n);
     for(int i=0;i<3;i++)scanf("%d",&dx[i]);
-	dfs(0);
+ 	dfs(0);
     printf("%d",cot);
 	return 0;
 }

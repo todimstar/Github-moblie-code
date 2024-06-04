@@ -1,13 +1,19 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
-void maopao(int a[],int len);//==冒泡== 
-void xuanze(int a[],int len);//==选择== 
-void suiji(int a[],int len);//==随机数组生成== 
-void myinset(int a[],int len);
-void inset(int a[],int len);
-void mykuaipai(int a[],int len);
-void quickSort(int a[],int left,int right);
+void maopao(int a[],int len);	//==冒泡== 
+void xuanze(int a[],int len);	//==选择== 
+void suiji(int a[],int len);	//==随机数组生成== 
+void myinset(int a[],int len);	//my插入排序 
+void inset(int a[],int len);	//插入排序 
+void mykuaipai(int a[],int len);//my快排 
+void quickSort(int a[],int left,int right);//快排一
+ 
+ void MyQuickSort(int nums[], int left,int right);
+ int partition(int nums[], int left,int right);
+ void swap(int nums[], int l,int r);
+
+
 
 int main (){
 	
@@ -23,7 +29,7 @@ int main (){
 		printf("%d ",a[i]);
 	}
 	printf("\n");
-	mykuaipai(a,n);
+	MyQuickSort(a,0,n-1);
 	printf("函数排序之后的是:"); 
 	for(i=0;i<n;i++){
 		printf("%d ",a[i]);
@@ -34,6 +40,8 @@ int main (){
 
 void quickSort(int a[],int left,int right){
 	if(left>=right)return;
+	
+	Random random=new Random();
 	int i=left;
 	int j=right;
 	int pivot=a[i];
@@ -84,6 +92,41 @@ void mykuaipai(int a[],int len){
 	}
 	mykuaipai(ra,len-j-1);
 	
+}
+
+Random random =new Random();//随机数? 
+void swap(int nums[], int l,int r){
+	int temp=nums[l];
+	nums[l]=nums[r];
+	nums[r]=temp;
+}
+
+int partition(int nums[], int left,int right){//分区 
+	int len=right-left+1;
+	int j=random.nextInt(len)+left;
+	swap(nums,j,right); 
+
+	int pivot=nums[right];//必须是nums的最后一位且right须是最后一位的下标???不是可以随机化吗 
+	
+	int fast=left,slow=left;
+	while(fast<right) {		//快指针到right头就停 
+		if(nums[fast]<pivot){//出现不该出现在右边的数就换走 
+			swap(nums,fast,slow);
+			slow++;
+		}
+		fast++;
+	}
+	swap(nums,slow,right);
+	return slow; 
+} 
+
+void MyQuickSort(int nums[], int left,int right){//遍历二叉树 
+	if(left>=right)return;
+	//分区
+	int j=partition(nums,left,right);
+	
+	MyQuickSort(nums,left,j-1); //左分区
+	MyQuickSort(nums,j+1,right);//右分区 
 }
 
 

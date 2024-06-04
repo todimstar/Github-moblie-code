@@ -17,7 +17,7 @@ int main(){
 	v.push_back(1314159);
 	v.push_back(111);//尾插
 	
-	//1. 通过迭代器访问 
+	// 1. 通过迭代器访问 
 	vector<int>::iterator itBegin=v.begin();//起始迭代器,指向容器第一个元素
 	vector<int>::iterator itEnd=v.end();//结束迭代器,指向容器中最后一个元素的下一个位置
 	
@@ -26,13 +26,13 @@ int main(){
 		itBegin++;
 	} 
 	
-	//2.通过迭代器for遍历 
+	// 2.通过迭代器for遍历 
 	for(vector<int>::iterator it=v.begin();it!=v.end();it++){
 		cout<<*it<<endl;
 	} 
 	
-	//3.利用STL的遍历算法
-	for_each(v.begin(),v.end(),myPrint) ;
+	// 3.利用STL的遍历算法
+	for_each(v.begin(),v.end(),myPrint) ;//myPrint是回调函数，回调就是执行for_each时再调用 
 	
 	return 0;
 }

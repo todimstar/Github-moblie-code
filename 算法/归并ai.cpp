@@ -53,7 +53,7 @@ void merge(int arr[], int left[], int leftSize, int right[], int rightSize, int 
 
 // 归并排序函数
 
-void mergeSort(int arr[], int size) {
+void mergeSort(int arr[],int size) {
 
 	if (size <= 1) {
 
