@@ -41,13 +41,13 @@ int main (){
 void quickSort(int a[],int left,int right){
 	if(left>=right)return;
 	
-	Random random=new Random();
+	//Random random=new Random();
 	int i=left;
 	int j=right;
 	int pivot=a[i];
 	while(i<j){
 		while(i<j&&a[j]>=pivot)j--;
-		a[i]=a[j];
+		a[i]=a[j];//感觉可以等到都查完再换ij 
 		while(i<j&&a[i]<=pivot)i++;
 		a[j]=a[i];
 	}
@@ -92,41 +92,6 @@ void mykuaipai(int a[],int len){
 	}
 	mykuaipai(ra,len-j-1);
 	
-}
-
-Random random =new Random();//随机数? 
-void swap(int nums[], int l,int r){
-	int temp=nums[l];
-	nums[l]=nums[r];
-	nums[r]=temp;
-}
-
-int partition(int nums[], int left,int right){//分区 
-	int len=right-left+1;
-	int j=random.nextInt(len)+left;
-	swap(nums,j,right); 
-
-	int pivot=nums[right];//必须是nums的最后一位且right须是最后一位的下标???不是可以随机化吗 
-	
-	int fast=left,slow=left;
-	while(fast<right) {		//快指针到right头就停 
-		if(nums[fast]<pivot){//出现不该出现在右边的数就换走 
-			swap(nums,fast,slow);
-			slow++;
-		}
-		fast++;
-	}
-	swap(nums,slow,right);
-	return slow; 
-} 
-
-void MyQuickSort(int nums[], int left,int right){//遍历二叉树 
-	if(left>=right)return;
-	//分区
-	int j=partition(nums,left,right);
-	
-	MyQuickSort(nums,left,j-1); //左分区
-	MyQuickSort(nums,j+1,right);//右分区 
 }
 
 

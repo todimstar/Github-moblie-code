@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include<iostream>
+using namespace std;
 	#include <random>  
 
 	#include <ctime>  
@@ -27,10 +28,24 @@ void quickSort(int a[],int left,int right);//快排一
  int partition(int nums[], int left,int right);
  void swap(int nums[], int l,int r);
 
+//void tf(int ff)if(ff)return 0;//不认函数定义 
 
+int testf(int a) {
+	if(!a)a=0;
+	if(a-10>0)cout<<a<<"if第一行 ";cout<<"if同一行"<<endl;int b=++a;while(b--)cout<<b<<" ";//测试if能执行完一行吗
+		cout<<"大哥if走a-10一次"<<endl; //说明if不看缩进也不看同一行，只执行其后第一条 
+	cout<<"大哥出测试if了"<<endl;
+	a=3; 
+	for(;a>0;a--)cout<<a<<"for第一行 ";cout<<"for同一行"<<endl;
+		cout<<"大哥for走缩进一次"<<endl; //说明for也不看缩进也不看同一行，只执行其后第一条 
+	cout<<"大哥出测试for了"<<endl;//其实devcpp的标色也告诉你了蓝的是同for/if的黄的就是外围的 
+	
+	return a; 	
+}
+	
 
 int main (){
-	
+	cout<<testf(0);
 	int n,i;
 	scanf("%d",&n);
 	int a[n];
@@ -80,43 +95,6 @@ void quickSort(int a[],int left,int right){
 	quickSort(a,i+1,right);
 }
 
-
-
-void mykuaipai(int a[],int len){
-	if(len==1)return;
-	int i=0,j;
-	int pivot;
-	pivot=a[0];
-	for(j=len;j>=0;j--){
-		if(a[j]<pivot){
-			a[0]=a[j];
-			break;
-		}
-	}
-	for(i=1;i<=j;i++){
-		if(a[i]>pivot){
-			a[j]=a[i];
-			break;
-		}
-	}
-	for(;j>=i;j--){
-		if(j==i){
-			a[j]=pivot;
-			break;
-		}
-	}
-	int la[j];
-	for(i=0;i<j;i++){
-		la[i]=a[i];
-	}
-	mykuaipai(la,j);
-	int ra[len-j-1];
-	for(i=0;i<len-j-1;i++){
-		ra[i]=a[j+1+i];
-	}
-	mykuaipai(ra,len-j-1);
-	
-}
 
 /*Random random =new Random();//随机数? 
 void swap(int nums[], int l,int r){
