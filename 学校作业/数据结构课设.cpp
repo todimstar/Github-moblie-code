@@ -17,10 +17,10 @@ struct Node {
 
 class LinkedList {
 private:
-    Node* head;  //5.29初审：private成员可添加以丰富拓展 
+    Node* head=NULL;  //5.29初审：private成员可添加以丰富拓展 
 
 public:
-    LinkedList() : head(NULL) {}
+    
 
     void insert(string value) {  //5.30凌晨修改传参string 
         Node* newNode = new Node;
@@ -108,20 +108,20 @@ public:
 };
 
 void displayMenu() {
-    cout << "1. Insert into Set A" << endl;
-    cout << "2. Insert into Set B" << endl;
-    cout << "3. Display Set A" << endl;
-    cout << "4. Display Set B" << endl;
-    cout << "5. Intersection of A and B" << endl;
-    cout << "6. Difference of A and B" << endl;
-    cout << "7. Union of A and B" << endl;
-    cout << "8. Exit" << endl;
+    cout << "1. 新增A集合成员" << endl;
+    cout << "2. 新增B集合成员" << endl;
+    cout << "3. 展示当前A集合成员" << endl;
+    cout << "4. 展示当前B集合成员" << endl;
+    cout << "5. 求出A和B交集" << endl;
+    cout << "6. 求出A和B差集" << endl;
+    cout << "7. 求出A和B的并集" << endl;
+    cout << "8. 退出集合运算系统" << endl;
 }
 
 int main() {
     LinkedList A, B;
     int choice;
-	string value;//5.30凌晨为单次输入预留12空间 //5.30凌晨直接string 
+	string value;
 
     while (true) {
     	system("cls");  //刷新一波 
@@ -132,60 +132,68 @@ int main() {
         switch (choice) {
             case 1:
             	system("cls");
-                cout << "Enter value to insert into Set A: ";
+                cout << "输入新增的A集合成员: ";
                 cin >> value;
                 A.insert(value);
+                system("pause");
                 break;
 
             case 2:
             	system("cls");
-                cout << "Enter value to insert into Set B: ";
+                cout << "输入新增的B集合成员: ";
                 cin >> value;
                 B.insert(value);
+                system("pause");
                 break;
 
             case 3:
             	system("cls");
-                cout << "Set A: ";
+                cout << "当前A集合: ";
                 A.display();
+                system("pause");
                 break;
 
             case 4:
             	system("cls");
-                cout << "Set B: ";
+                cout << "当前B集合: ";
                 B.display();
+                system("pause");
                 break;
 
             case 5: {
             	system("cls");
                 LinkedList result = LinkedList::intersection(A, B);
-                cout << "Intersection of A and B: ";
+                cout << "A和B交集: ";
                 result.display();
+                system("pause");
                 break;
             }
 
             case 6: {
             	system("cls");
                 LinkedList result = LinkedList::difference(A, B);
-                cout << "Difference of A and B: ";
+                cout << "A和B差集: ";
                 result.display();
+                system("pause");
                 break;
             }
 
             case 7: {
             	system("cls");
                 LinkedList result = LinkedList::unionSet(A, B);
-                cout << "Union of A and B: ";
+                cout << "A和B的并集: ";
                 result.display();
+                system("pause");
                 break;
             }
 
             case 8:
-                cout << "Exiting..." << endl;
+            	while()
+                cout << "退出成功..." << endl;
                 return 0;
 
             default:
-                cout << "Invalid choice. Please try again." << endl;
+                cout << "无效选项. 请重新输入." << endl;
         }
     }
 
