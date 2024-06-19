@@ -39,7 +39,7 @@ int main (){
 }
 
 void quickSort(int a[],int left,int right){
-	if(left>=right)return;
+	if(left==right)return;
 	
 	//Random random=new Random();
 	int i=left;
