@@ -36,7 +36,7 @@ class LinkedList {
 			if(finded==NULL)return 0;
 			Node* Fhead = head;
 			while (Fhead) {//当链表没到头时 
-				if (Fhead->next == finded||Fhead==finded){//为finded的上一个 或就是第一个 
+				if (Fhead->next == finded){//为finded的上一个  
 					if(finded->next){//finded不是链表最后一个 
 						Node* Flast=finded->next;//Flast指向后位 
 						delete finded;//删掉finded ？？貌似是这里删除的地方被访问了，并且跳转到集合运算函数去了 
@@ -44,7 +44,8 @@ class LinkedList {
 						}
 					else{Fhead->next=NULL;}//是最后一个 
 					break;
-				}Fhead=Fhead->next;//推进指针寻找 
+				}if(Fhead==finded){head=finded->next;delete finded;break;}//就是第一个,因为是头指针链表所以要特判删除 
+				Fhead=Fhead->next;//推进指针寻找 
 			}return 1;
 		}
 
@@ -313,7 +314,7 @@ again:
 	string temp;//提高抗乱输入能力:string输入类型，if判断switch 好处:错回不用cin.clear() 
 	system("cls");
 	printf("----修改单个%c集合成员----\n", aorb);
-	cout<<"当前%c集合成员：";L.display(); 
+	cout<<"当前"<<aorb<<"集合成员：";L.display(); 
 	cout << "\n按1开始修改，按0返回主菜单";
 	cin >> temp;
 	
