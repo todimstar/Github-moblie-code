@@ -20,12 +20,12 @@ struct Node {
 
 class LinkedList {
 	private:
-		Node* head = NULL; //5.29初审：private成员可添加以丰富拓展
+		Node* head = NULL; //5.29：private成员可添加以丰富拓展
 		int Length = 0;
 	public:
 
 
-		void insert(const string& value) {  //5.30凌晨修改传参string
+		void insert(const string& value) {  //5.30修改传参string
 			Node* newNode = new Node;
 			newNode->data = value;
 			newNode->next = head;//头插
@@ -324,6 +324,7 @@ again:
 		cin >> value;
 		Node* find=L.finddata(value);
 		if(find){
+			cout<<"找到此值\n";
 			cout<<"请输入修改值(改)：";
 			cin>>value;
 			find->data=value;
@@ -442,8 +443,12 @@ int main() {
 			case 9: {
 				system("cls");
 				LinkedList result = LinkedList::intersection(A, B);
+				cout<<"当前A集合成员：";A.display();printf("\n");
+				cout<<"当前B集合成员：";B.display();printf("\n");
+				cout<<"-----------------------------------------\n";
 				cout << "A和B交集 即(A∩B): ";
 				result.display();
+				cout<<"-----------------------------------------\n";
 				system("pause");
 				break;
 			}
@@ -451,8 +456,12 @@ int main() {
 			case 10: {
 				system("cls");
 				LinkedList result = LinkedList::difference(A, B);
+				cout<<"当前A集合成员：";A.display();printf("\n");
+				cout<<"当前B集合成员：";B.display();printf("\n");
+				cout<<"-----------------------------------------\n";
 				cout << "A和B差集 即(A - B): ";
 				result.display();
+				cout<<"-----------------------------------------\n";
 				system("pause");
 				break;
 			}
@@ -460,8 +469,12 @@ int main() {
 			case 11: {
 				system("cls");
 				LinkedList result = LinkedList::difference(B, A);
+				cout<<"当前A集合成员：";A.display();printf("\n");
+				cout<<"当前B集合成员：";B.display();printf("\n");
+				cout<<"-----------------------------------------\n";
 				cout << "*B和A差集 即(B - A): ";
 				result.display();
+				cout<<"-----------------------------------------\n";
 				system("pause");
 				break;
 			}
@@ -469,8 +482,12 @@ int main() {
 			case 12: {
 				system("cls");
 				LinkedList result = LinkedList::unionSet(A, B);
+				cout<<"当前A集合成员：";A.display();printf("\n");
+				cout<<"当前B集合成员：";B.display();printf("\n");
+				cout<<"-----------------------------------------\n";
 				cout << "A和B的并集 即(A∪ B): ";
 				result.display();
+				cout<<"-----------------------------------------\n";
 				system("pause");
 				break;
 			}
