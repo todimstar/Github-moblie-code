@@ -14,8 +14,8 @@ void quick_sort(int* q,int l,int r){
 	while(i<j){
 		do i++;while(q[i]<x);
 		do j--;while(q[j]>x);
-		if(i<j)swap(q[i],q[j]);
-	}
+		if(i<j)swap(q[i],q[j]);//和书本的快排区别就是左右找到再换，明明感觉跟书本没区别但，就是比书本快
+	}//是因为一轮中可以进行多次互换吗，不，课本也可以多次互换
 	quick_sort(q,l,j);
 	quick_sort(q,j+1,r);
 }

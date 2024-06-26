@@ -76,21 +76,21 @@ void quickSort(int a[],int left,int right){
 		// 生成一个随机数  
 	
 	int random_number = distribution(generator);*/
-	srand((unsigned)time(NULL));
-	int random_number=rand()%(right-left+1)+left;
-	
+	/*srand((unsigned)time(NULL));
+	int random_number=rand()%(right-left+1)+left;*/
+	//注释为随机化操作
 	int i=left;
 	int j=right;
-	int pivot=a[random_number];
+	int pivot=a[left];/*a[random_number];
 	a[random_number]=a[i];
-	a[i]=pivot;
+	a[i]=pivot;*/
 	while(i<j){
 		while(i<j&&a[j]>=pivot)j--;
 		a[i]=a[j];
 		while(i<j&&a[i]<=pivot)i++;
 		a[j]=a[i];
 	}
-	a[i]=pivot;//这是原来的算法有的，也许有冲突了这样 
+	a[i]=pivot;//不冲突，是把pivot放到该放的位置 
 	quickSort(a,left,i-1);
 	quickSort(a,i+1,right);
 }
