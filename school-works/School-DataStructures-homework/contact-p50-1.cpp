@@ -113,7 +113,7 @@ int main () {
 	initList(head1, a, N);
 	//N+=a;  这是1-3,3-6
 
-	cout << "那么我们第二个链表要多长？";
+	cout << "那么我们第二个链表要多长？"<<endl;
 	cin >> a;
 	initList(head2, a, N);
 
