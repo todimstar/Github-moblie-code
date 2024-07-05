@@ -58,7 +58,20 @@
       "xtree": "cpp",
       "xutility": "cpp",
       "stdlib.h": "c",
-      "string.h": "c"
+      "string.h": "c",
+      "time.h": "c",
+      "array": "c",
+      "chrono": "c",
+      "forward_list": "c",
+      "list": "c",
+      "unordered_set": "c",
+      "string_view": "c",
+      "format": "c",
+      "ranges": "c",
+      "span": "c",
+      "stacktrace": "c",
+      "regex": "c",
+      "valarray": "c"
     },
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "aiXcoder.showTrayIcon": true

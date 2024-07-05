@@ -1,17 +1,17 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
-void maopao(int a[],int len);	//==冒泡== 
-void xuanze(int a[],int len);	//==选择== 
+void maopao(int a[],int len);	//==冒泡== 实验量大起来冒泡就最慢了
+void xuanze(int a[],int len);	//==选择== 选择第二慢
 void suiji(int a[],int len);	//==随机数组生成== 
 void myinset(int a[],int len);	//my插入排序 
-void inset(int a[],int len);	//插入排序 
+void inset(int a[],int len);	//插入排序 插入确实在冒泡选择插入里最快
 void mykuaipai(int a[],int len);//my快排 
 void quickSort(int a[],int left,int right);//快排一
  
- void MyQuickSort(int nums[], int left,int right);
- int partition(int nums[], int left,int right);
- void swap(int nums[], int l,int r);
+void MyQuickSort(int nums[], int left,int right);
+int partition(int nums[], int left,int right);
+void swap(int nums[], int l,int r);
 
 
 
@@ -19,7 +19,7 @@ int main (){
 	
 	int n,i;
 	scanf("%d",&n);
-	int a[n];
+	int a[n],b[n],c[n];
 	suiji(a,n);//========自动挡 
 	/*for(i=0;i<n;i++){
 		scanf("%d",&a[i]);//手动挡 
@@ -27,12 +27,35 @@ int main (){
 	printf("随机生成的是:"); 
 	for(i=0;i<n;i++){
 		printf("%d ",a[i]);
+		b[i]=a[i];
+		c[i]=a[i];
 	}
 	printf("\n");
-	MyQuickSort(a,0,n-1);
-	printf("函数排序之后的是:"); 
+	clock_t begin1 = clock();
+	maopao(a,n);
+	clock_t end1 = clock();
+	double duration1 = (end1 - begin1);
+	printf("maopao函数耗时=%lf\n排序之后的是:",duration1); 
 	for(i=0;i<n;i++){
 		printf("%d ",a[i]);
+	}
+	printf("\n");
+	clock_t begin2 = clock();
+	inset(b,n);
+	clock_t end2 = clock();
+	double duration2 = (end2 - begin2);
+	printf("inset函数耗时=%lf\n排序之后的是:",duration2); 
+	for(i=0;i<n;i++){
+		printf("%d ",b[i]);
+	}
+	printf("\n");
+	clock_t begin3 = clock();
+	xuanze(c,n);
+	clock_t end3 = clock();
+	double duration3 = (end3 - begin3);
+	printf("xuanze函数耗时=%lf\n排序之后的是:",duration3); 
+	for(i=0;i<n;i++){
+		printf("%d ",c[i]);
 	}
 	
 	return 0;
@@ -98,15 +121,16 @@ void mykuaipai(int a[],int len){
 
 void inset(int a[],int len){
 	int i,j,t;
-	int count=0; 
+	int count=0,cntwai=0,cntnei=0; 
 	for(i=1;i<len;i++){
-		for(j=i;j>=1 && a[j]<a[j-1];j--){count++;
-			t=a[j];
+		t=a[i];cntwai++;
+		for(j=i;j>=1 && /*a[j]*/t<a[j-1];j--){count++;cntnei++;
+			//t=a[j];//2024.6.28优化减少赋值操作
 			a[j]=a[j-1];
-			a[j-1]=t;
-		}
+			//a[j-1]=t;
+		}a[j]=t;//为什么可以j,因为如果t是>=a[j-1]t得赋给a[j]，如果是因为j==0,上一次赋值也把a[1]=a[0]可以搞a[0]了
 	}
-	printf("其count=%d",count);
+	printf("inset的count=%d,cntwai=%d,cntnei=%d\n",count,cntwai,cntnei);
 }
 
 
@@ -143,27 +167,27 @@ void suiji(int a[],int len){
 
 
 void xuanze(int a[],int len){//==选择排序对于较有序的的数组会做很多无用功，目前感觉时间复杂度最大的排序算法 
-	int i,j,k,t;
+	int i,j,k,t,cntwai=0,count=0,cntnei=0;
 	for(i=0;i<len;i++){//==i<len-1;就能少走一点点，虽然<len最后j也会因为j=len走掉;所以几乎差不多 
-		k=i;
-		for(j=i+1;j<len;j++){
+		k=i;count++;
+		for(j=i+1;j<len;j++){cntwai++;
 			if(a[j]<a[k]){
-				k=j;
+				k=j;cntnei++;
 			} 
 		}
 		t=a[i];
 		a[i]=a[k];
 		a[k]=t;
-	} 
-}
+	} printf("xunaze的外层和交换count=%d,应该跟冒泡只差只因为flag提前结束的cntwai=%d,找最小值移动的cntnei=%d\n",count,cntwai,cntnei);
+}//啥子哦，选择还是比冒泡多走呀，虽然确实count对标交换是少，嗯，难道就是少的这里？
 
 
 
 void maopao(int a[],int len){//==优化后的冒泡倒是自我感觉良好捏,连基本有序的时候都跟插入排序一样次数 666; 
-	int flag=1,i,t;int count=0;
+	int flag=1,i,t;int count=0,cntwai=0,cntnei=0;
 	while(len-- && flag){
-		flag=0;
-		for(i=0;i<len;i++){
+		flag=0;cntwai++;
+		for(i=0;i<len;i++){cntnei++;
 			if(a[i]>a[i+1]){//顺序前小后大 
 				flag=1;count++;
 				t=a[i];
@@ -171,7 +195,7 @@ void maopao(int a[],int len){//==优化后的冒泡倒是自我感觉良好捏,�
 				a[i+1]=t;
 			}
 		}
-		printf("其count=%d",count);
+		
 	}
-	
+	printf("maopao的count=%d,cntwai=%d,cntnei=%d\n",count,cntwai,cntnei);
 } 
