@@ -1,3 +1,4 @@
+// 2024.7.17结论：在这般简单的题目结构下，dfs和多重循环效果一样，但在迷宫等题时能避免多重循环的重复检测，且dfs递归所以思路清晰点
 #include<stdio.h>
 int n,sum=0;
 int yong[10]={0};
@@ -43,3 +44,4 @@ int main ()
     printf("%d",sum);
 	return 0; 
  } 
+
