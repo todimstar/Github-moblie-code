@@ -1,6 +1,6 @@
 /*#include<stdio.h>
 #include<string.h>
-int main (){//高精度乘法 
+int main (){//高精度H*2乘法 
 	char s1[250];
 	int i,len,a[250],c[300]={0};
 	scanf("%s",s1);
