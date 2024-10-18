@@ -112,5 +112,7 @@
     },
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "aiXcoder.showTrayIcon": true,
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "editor.mouseWheelZoom": true,
+    "terminal.integrated.mouseWheelZoom": true
   }

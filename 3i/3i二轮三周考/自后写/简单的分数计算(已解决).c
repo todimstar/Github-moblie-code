@@ -2,7 +2,8 @@
 int gcd(int x,int y){
     int t;
     while(y){//2024.2.18,gcd防y=0复习   //2024.2.29 -->还得是while(y)才能防止 gcd(n,0)出现n%0无法计算情况,完全胜利! 
-		t=x%y;
+		//若余数为0，则得到gcd
+        t=x%y;//为什么一直取余，因为既然是gcd那么余数r也是可以被整除的，由a=b*x+r; r=a-b*x; 
 		x=y;
 		y=t;
 	}
