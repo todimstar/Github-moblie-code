@@ -34,7 +34,7 @@ void remove(int n)
     }
 }
 
-bool check(ll x)
+bool check(ll x)    //大佬的法二--一南
 {
     ll res = n;
     for (int i = 1; i <= n; i++)
