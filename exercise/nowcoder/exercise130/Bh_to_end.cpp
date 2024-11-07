@@ -1,5 +1,5 @@
 #include <iostream>//算法注释：贪心算法或模拟，心得：注意L,R都是负数直接+	，题目网址：https://ac.nowcoder.com/acm/contest/93002/B
-using namespace std;
+using namespace std;//跟atcode丰田赛C_sum=0类似
 
 #define int long long
 const int N = 1e5 + 10;

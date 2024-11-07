@@ -4,21 +4,21 @@
 
 using namespace std;
 
-const int N =1e5+10;
+const int N =2000+10;
+typedef long long ll;
+int T,n;
+int a[N];
 
 int compare(const void* a,const void* b){
     return ((*(int*)a)-(*(int*)b));
 }
 
-void quick_sort(int* q,int l,int r){
-	
-	
+int solve(){
+
 }
 
-
 int main (){
-	int T,n;
-	int a[100001];
+
 	
 	cin>>T;
 	while(T--){
@@ -29,6 +29,8 @@ int main (){
 		//qsort(a,n,sizeof(a[0]),compare);
 		quick_sort(a,0,n-1);
 		
+		cout<<solve();
+
 		for(int i=0;i<n;i++)printf("%d ",a[i]);
 
 	}
