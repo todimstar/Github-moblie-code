@@ -39,7 +39,7 @@ int main() {
     for(auto i : B)cout<<i<<" ";
     cout<<endl;
     
-    // 二分答案
+    // 二分答案--左闭右闭区间
     int left = 0, right = 2e9 + 5, ans = 0;
     while (left <= right) {
         int mid = left + (right - left) / 2;
@@ -51,6 +51,19 @@ int main() {
         }cout<<"check执行完毕"<<endl;
     }
     
-    cout << ans << endl;
+    //左闭右开区间
+    int l=0,r=2e9+5,mid;//,ans=0;
+    while(l<r){
+        mid = l+((r-l)>>1);
+        if(check(mid,A,B,n)){
+            ans=mid;//可行且先记录，不然退出的l,r都大于它
+            l = mid+1;
+        }else{
+            r = mid;
+        }
+    }
+    
+    //cout << ans <<endl;
+    cout << l-1 << endl;//也许可以l-1?是的可以
     return 0;
 }
