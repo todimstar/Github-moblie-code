@@ -12,7 +12,8 @@
         "environment": [],
         "externalConsole": true, 
         "MIMode": "gdb",
-        "miDebuggerPath": "C:\\Ep\\MinGW\\bin\\gdb.exe",
+        //"miDebuggerPath": "C:\\Ep\\MinGW\\bin\\gdb.exe",
+        "miDebuggerPath": "C:\\Ep\\Environment\\MinGW\\bin\\gdb.exe",
         "preLaunchTask": "g++",
         "setupCommands": [
           {
