@@ -30,7 +30,8 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe 生成活动文件",
-            "command": "E:/MinGW-19.0_x64/MinGW/bin/g++.exe",
+            //"command": "E:/MinGW-19.0_x64/MinGW/bin/g++.exe",
+            "command": "C:/Ep/Environment/MinGW/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -39,7 +40,8 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "E:/MinGW-19.0_x64/MinGW/bin"
+                //"cwd": "E:/MinGW-19.0_x64/MinGW/bin"
+                "cwd": "C:/Ep/Environment/MinGW/bin"
             },
             "problemMatcher": [
                 "$gcc"

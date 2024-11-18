@@ -108,7 +108,8 @@
       "syncstream": "cpp",
       "thread": "cpp",
       "typeindex": "cpp",
-      "variant": "cpp"
+      "variant": "cpp",
+      "queue": "cpp"
     },
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "aiXcoder.showTrayIcon": true,
