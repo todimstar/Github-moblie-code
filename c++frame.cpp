@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int N =2000+10;
+const int N =1e9+10;
 typedef long long ll;
 int T,n;
 int a[N];
