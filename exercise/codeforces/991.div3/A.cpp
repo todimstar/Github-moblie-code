@@ -1,4 +1,4 @@
-#include<iostream>	//算法注释：	，心得：	，题目网址：
+#include<iostream>	//算法注释：观察题	，心得：	，题目网址：https://codeforces.com/contest/2050/my
 #include<stdlib.h>
 #include<string>
 

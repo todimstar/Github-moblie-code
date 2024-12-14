@@ -1,25 +1,13 @@
-#include<iostream>	//算法注释：	，心得：	，题目网址：
+#include<iostream>	//算法注释：细节模拟	，心得：别太暴力	，题目网址：https://codeforces.com/contest/2050/my
 #include<stdlib.h>
 #include<string>
+#include<algorithm>
 
 using namespace std;
 
 const int N =1e5+13;
 typedef long long ll;
 int T;
-
-bool dfs(int _sum,int i2,int i3){
-    if(_sum%9==0)return true;
-    else{
-        if(i2>0){
-            _sum+=2;i2--;
-            return dfs(_sum,i2,i3);
-        }if(i3>0){
-            _sum+=6;i3--;
-            return dfs(_sum,i2,i3);
-        }if(i2==0 && i3==0)return false;
-    }
-}
 
 int main (){
 
@@ -38,16 +26,16 @@ int main (){
                 i3++;
             }
         }
-        if(sum%9==0){
+        int cha=9-sum%9;//正向上差多少
+        if(cha==9){
             cout<<"YES"<<endl;
             continue;
+        }if(cha&1)cha+=9;
+        cha-=min(i3,cha/6)*6;
+        if(cha/2<=i2){
+            cout<<"YES"<<endl;
         }else{
-            //cout<<i2<<" "<<i3<<endl;
-            if(dfs(sum%9,i2,i3)){
-                cout<<"YES"<<endl;
-            }else{
-                cout<<"NO"<<endl;
-            }
+            cout<<"NO"<<endl;
         }
         
 	}

@@ -1,4 +1,4 @@
-#include<iostream>	//算法注释：	，心得：	，题目网址：
+#include<iostream>	//算法注释：观察题	，心得：	，题目网址：
 #include<stdlib.h>
 #include<string>
 
@@ -15,38 +15,21 @@ int main (){
 	
 	cin>>T;
 	while(T--){
-        int sum=0;
+        ll sum1=0,sum2=0;
 		scanf("%d",&n);
-		for(int i=0;i<n;i++){
+		for(int i=1;i<=n;i++){
             scanf("%d",&a[i]);
-            sum+=a[i];
-        }
-        if(sum%n){
-            printf("NO\n");
+            if(i&1)sum1+=a[i];
+            else sum2+=a[i];
+        }ll  p2=n/2;
+        if(n&1 && sum1%(p2+1)==0 && sum2%(p2)==0 && sum1/(p2+1)==sum2/(p2)){//总数为奇数，且平均数相等
+            printf("YES\n");
             continue;
-        }
-		else{
-            int q=sum/n;
-            for(int i=1;i<n-1;i++){
-                while(a[i-1]<q){
-                    a[i-1]++;
-                    a[i+1]--;
-                }
-            }
-            for(int i=n-2;i>0;i--){
-                while(a[i+1]<q){
-                    a[i+1]++;
-                    a[i-1]--;
-                }
-            }bool flag=true;
-            for(int i=0;i<n;i++){
-                if(a[i]!=q){
-                    printf("NO\n");
-                    flag=false;
-                    break;
-                }
-            }if(flag)printf("YES\n");
-        }
+        }else if(!(n&1) && sum1%(p2)==0 && sum2%(p2)==0 && sum1/(p2)==sum2/(p2)){//总数为偶数，且平均数相等
+            printf("YES\n");
+            continue;
+        }else printf("NO\n");
+		
         
 	}
 	
