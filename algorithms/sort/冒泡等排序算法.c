@@ -14,6 +14,67 @@ int partition(int nums[], int left,int right);
 void swap(int nums[], int l,int r);
 
 
+/*
+void zhi_cha_paixu(int arr[], int n)
+{	clock_t start1 = clock();
+    printf("进入直插%ld\n",start1);
+    int j, key;
+    for (int i = 1; i < n; i++) // 除了第一个都是未排序区
+    {
+        key = arr[i]; // 记录第i个数据
+        j = i - 1; // i前一个数据
+        while (j >= 0 && arr[j] > key)
+        {
+            //compare_count++; // 增加比较次数
+            arr[j + 1] = arr[j]; // 将大于key的元素向后移动
+            //move_count++; // 增加移动次数
+            j = j - 1;
+        }
+        arr[j + 1] = key; // 将key放入正确位置
+        //move_count++; // 增加移动次数
+    }
+    clock_t end1 = clock();
+	printf("结束直插%ld\n使用时间为%lf\n",end1,(double)end1-start1);
+}
+//找数组的最大值
+int getMax(int arr[], int n)
+{
+    int max = arr[0];
+    for (int i = 1; i < n; i++)
+        if (arr[i] > max)
+            max = arr[i];
+    return max;
+}
+void countSort(int arr[], int n, int exp)
+{
+    int* output = (int*)malloc(n * sizeof(int));
+    int count[10] = { 0 };
+    for (int i = 0; i < n; i++)
+        count[(arr[i] / exp) % 10]++;
+
+    for (int i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+
+    for (int i = n - 1; i >= 0; i--)
+    {
+        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+        count[(arr[i] / exp) % 10]--;
+    }
+    for (int i = 0; i < n; i++)
+        arr[i] = output[i];
+
+    free(output);
+}
+void ji_shu_paixu(int arr[], int n)
+{	clock_t start1 = clock();
+	    printf("进入jishu%lf\n",start1);
+    int m = getMax(arr, n);
+    for (int exp = 1; m / exp > 0; exp *= 10)
+        countSort(arr, n, exp);
+    clock_t end1 = clock();
+	printf("结束jishu%ld\n使用时间为%lf\n",end1,(double)end1-start1);
+}
+*/
 
 int main (){
 	
@@ -30,10 +91,14 @@ int main (){
 		b[i]=a[i];
 		c[i]=a[i];
 	}
+	zhi_cha_paixu(a,n);
+	ji_shu_paixu(b,n);
 	printf("\n");
 	clock_t begin1 = clock();
+	printf("%ld\n",begin1);
 	maopao(a,n);
 	clock_t end1 = clock();
+	printf("%ld\n",end1);
 	double duration1 = (end1 - begin1);
 	printf("maopao函数耗时=%lf\n排序之后的是:",duration1); 
 	for(i=0;i<n;i++){
