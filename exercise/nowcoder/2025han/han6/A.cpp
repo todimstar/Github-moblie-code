@@ -4,7 +4,7 @@
 
 using namespace std;
 
-const int N =1e5+13;
+const int N =1e9+10;
 typedef long long ll;
 int T,n;
 int a[N];
@@ -14,7 +14,12 @@ int compare(const void* a,const void* b){
 }
 
 int solve(){
-
+    int cnt=1;
+    for(int i=1;i<n;i++){
+        if(a[i]!=a[i-1]){
+            cnt++;
+        }
+    }return cnt;
 }
 
 int main (){
@@ -26,12 +31,9 @@ int main (){
 		scanf("%d",&n);
 		for(int i=0;i<n;i++)scanf("%d",&a[i]);
 		
-		//qsort(a,n,sizeof(a[0]),compare);
-		quick_sort(a,0,n-1);
 		
 		printf("%d\n",solve());
 
-		for(int i=0;i<n;i++)printf("%d ",a[i]);
 
 	}
 	
