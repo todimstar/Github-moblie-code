@@ -8,7 +8,7 @@ const int N =1e5+13;
 typedef long long ll;
 int T,n;
 int a[N];
-//Again Test
+
 int compare(const void* a,const void* b){
     return ((*(int*)a)-(*(int*)b));
 }
