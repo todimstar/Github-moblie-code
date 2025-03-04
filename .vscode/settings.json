@@ -115,5 +115,6 @@
     "aiXcoder.showTrayIcon": true,
     "C_Cpp.errorSquiggles": "disabled",
     "editor.mouseWheelZoom": true,
-    "terminal.integrated.mouseWheelZoom": true
+    "terminal.integrated.mouseWheelZoom": true,
+    "Codegeex.RepoIndex": true
   }
