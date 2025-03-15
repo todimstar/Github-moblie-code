@@ -1,24 +1,20 @@
-#include<iostream>	//算法注释：	，心得：	，题目网址：
-#include<stdlib.h>
-#include<string>
-
+#include<iostream>//理解错题意了之前用cout<<sum/n;
+                    //其实应该是夹在(sum/n*n)~(n*m)之间
 using namespace std;
-
-const int N =1e9+10;
-typedef long long ll;
-int T,n;
-
+int mm[1001];
 int main (){
-
-	int n,m;
+    int n,m,sum=0;
     cin>>n>>m;
-    int a[m];
-    ll sum=0;
     for(int i=0;i<m;i++){
-        cin>>a[i];
-        sum+=a[i];
-    }cout<<sum/n;
-
-	
-	return 0;
+        cin>>mm[i];
+        sum+=mm[i];
+    }
+    if(sum==n*m)    //n*m是最大，
+        cout<<n;
+    else if(n*(m-1)>sum)//小于n人*(m-1)个技能就是没人拿得全
+        cout<<0;
+    else
+        cout<<sum-sum/n*n;//正常有人就是介于<n*(m-1)>到<n*m>之间
+    
+    return 0;
 }

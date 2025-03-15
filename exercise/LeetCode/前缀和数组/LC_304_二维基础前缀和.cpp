@@ -1,3 +1,6 @@
+```
+//time: 2025-03-08 22:30~23:50    https://leetcode.cn/problems/range-sum-query-2d-immutable/description/
+```
 #include <iostream>
 #include <vector>
 using namespace std;

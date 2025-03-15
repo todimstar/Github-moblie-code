@@ -1,3 +1,4 @@
+//time: 2025.03.05 23:24                    https://leetcode.cn/problems/range-sum-query-immutable/description/
 #include <iostream>//算法注释：	，心得：	，题目网址：
 #include <string>
 #include <vector>
