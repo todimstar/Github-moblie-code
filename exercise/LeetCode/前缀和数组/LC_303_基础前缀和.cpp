@@ -1,3 +1,4 @@
+//time: 2025.03.05 23:24  自解                  https://leetcode.cn/problems/range-sum-query-immutable/description/
 #include <iostream>
 #include <vector>
 using namespace std;

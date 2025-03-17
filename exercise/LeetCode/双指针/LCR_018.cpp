@@ -1,3 +1,6 @@
+```
+time: 2025-03-08 20:40~21:40    https://leetcode.cn/problems/XltzEq/submissions/
+```
 #include <iostream>//算法注释：双指针	，心得：排除异常后，首尾指针向中遍历最为快捷，isalnum()、tolower()、toupper()有点用	，题目网址：https://leetcode.cn/problems/XltzEq/submissions/607883157/
 #include <string>
 #include <vector>//优化思路：可以在判断前提前处理好字符串，但会增加空间复杂度

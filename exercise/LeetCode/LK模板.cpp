@@ -1,3 +1,4 @@
+//time: 2025.03.05 23:24                    https://leetcode.cn/problems/range-sum-query-immutable/description/
 #include <iostream>//算法注释：	，心得：	，题目网址：
 #include <string>
 #include <vector>
@@ -5,7 +6,8 @@
 /*
 补全提示词:
 这题变成完整样式，
-并指出跟我相比最便捷有效的一个或几个(暴力不遵循题目xxx)思路的差别
+并指出跟我相比最便捷有效的一个或几个思路的差别
+这题力扣变成完整样式，但是不要动我的主代码逻辑，就帮我补全以便我本地运行
 
 总结提示词：
 你看我这题总结得如何？

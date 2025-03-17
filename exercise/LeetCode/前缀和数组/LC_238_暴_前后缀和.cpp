@@ -1,3 +1,4 @@
+//time:2025.03.09 00:30 自解，第二天ai精妙解法          https://leetcode.cn/problems/product-of-array-except-self/description/
 #include <iostream>
 #include <vector>
 using namespace std;
