@@ -17,6 +17,7 @@ int Add(int num1, int num2 ) {
 }
 int main (){
 	int a=15,b=7;
+	
 	while(scanf("%d %d",&a,&b)!=EOF){
 		char sa[33],sb[33],sab[33];
 		itoa(a,sa,2);itoa(b,sb,2);itoa(a^b,sab,2);
